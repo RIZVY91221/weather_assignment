@@ -33,7 +33,7 @@ prod_build: `flutter build apk -t lib/main_prod.dart --flavor prod`
  </table>
 
 ## APK DOWNLOAD
-[APK](https://github.com/RIZVY91221/mail_tm/blob/master/file/app-dev-release.apk?raw=true)
+[APK](https://github.com/RIZVY91221/weather_assignment/blob/master/file/app-dev-release.apk?raw=true)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
