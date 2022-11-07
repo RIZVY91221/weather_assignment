@@ -8,9 +8,6 @@ abstract class WeatherLocalPreferenceManager {
   static const keyToken = "token";
   static const domainKey = "domain";
 
-  Future<List<Weather>>getCacheWeatherList(String city);
-  Future<void> setCacheWeatherList(List<Weather> weatherList);
-
   Future<String> getString(String key, {String defaultValue = ""});
 
   Future<bool> setString(String key, String value);
@@ -42,21 +39,6 @@ const CACHED_WEATHER = 'CACHED_WEATHER';
 class HRISLocalPreferenceManagerImpl implements WeatherLocalPreferenceManager {
   final _preference = SharedPreferences.getInstance();
 
-
-  @override
-  Future<void> setCacheWeatherList(List<Weather> weatherList) {
-    return _preference.then((preference) => preference.setString(CACHED_WEATHER, jsonEncode(weatherList.toString()),)
-    );
-  }
-  @override
-  Future<List<Weather>> getCacheWeatherList(String city) async{
-    final jsonString = await _preference.then((preference) => preference.getString(CACHED_WEATHER));
-    if (jsonString != null) {
-      return (json.decode(jsonString) as List).map((e) => Weather.fromJson(e)).toList();
-    } else {
-      throw Exception("Not Get Cache Weather Data");
-    }
-  }
   @override
   Future<String> getString(String key, {String defaultValue = ""}) {
     return _preference

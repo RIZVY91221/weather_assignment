@@ -1,4 +1,4 @@
-class OrderModel {
+/*class OrderModel {
   List<Data>? data;
 
   OrderModel({this.data});
@@ -19,22 +19,22 @@ class OrderModel {
     }
     return data;
   }
-}
+}*/
 
-class Data {
+class OrderModel {
   Order? order;
   FulfilmentOrder? fulfilmentOrder;
   List<Fulfilments>? fulfilments;
-  Additional? additional;
+  //Additional? additional;
 
-  Data({this.order, this.fulfilmentOrder, this.fulfilments, this.additional});
+  OrderModel({this.order, /*this.fulfilmentOrder, this.fulfilments, this.additional*/});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  OrderModel.fromJson(Map<String, dynamic> json) {
     order = json['order'] != null ? new Order.fromJson(json['order']) : null;
     fulfilmentOrder = json['fulfilment_order'] != null
         ? new FulfilmentOrder.fromJson(json['fulfilment_order'])
         : null;
-    if (json['fulfilments'] != null) {
+    /*if (json['fulfilments'] != null) {
       fulfilments = <Fulfilments>[];
       json['fulfilments'].forEach((v) {
         fulfilments!.add(new Fulfilments.fromJson(v));
@@ -42,7 +42,7 @@ class Data {
     }
     additional = json['additional'] != null
         ? new Additional.fromJson(json['additional'])
-        : null;
+        : null;*/
   }
 
   Map<String, dynamic> toJson() {
@@ -53,12 +53,12 @@ class Data {
     if (this.fulfilmentOrder != null) {
       data['fulfilment_order'] = this.fulfilmentOrder!.toJson();
     }
-    if (this.fulfilments != null) {
+  /*  if (this.fulfilments != null) {
       data['fulfilments'] = this.fulfilments!.map((v) => v.toJson()).toList();
     }
     if (this.additional != null) {
       data['additional'] = this.additional!.toJson();
-    }
+    }*/
     return data;
   }
 }
@@ -70,12 +70,12 @@ class Order {
   List<String>? orderStatuses;
   String? paymentStatus;
   String? remarks;
-  double? subtotal;
-  double? tax;
-  double? total;
-  double? discount;
-  int? shippingFee;
-  double? totalWeight;
+  var subtotal;
+  var tax;
+  var total;
+  var discount;
+  var shippingFee;
+  var totalWeight;
   String? totalWeightUom;
   String? createdAt;
   String? updatedAt;
@@ -188,7 +188,7 @@ class Customer {
   String? lastName;
   String? fullName;
   String? email;
-  Null? phone;
+  var phone;
 
   Customer(
       {this.firstName, this.lastName, this.fullName, this.email, this.phone});
@@ -216,15 +216,15 @@ class ShippingAddress {
   String? firstName;
   String? lastName;
   String? fullName;
-  Null? phone;
+  var phone;
   String? address1;
   String? address2;
-  Null? address3;
-  Null? address4;
-  Null? address5;
+  var address3;
+  var address4;
+  var address5;
   String? city;
   String? country;
-  Null? postal;
+  var postal;
   String? fullAddress;
 
   ShippingAddress(
@@ -278,27 +278,27 @@ class ShippingAddress {
 }
 
 class LineItems {
-  int? lineItemId;
+  var lineItemId;
   int? orderId;
-  int? productId;
-  int? variantId;
+  var productId;
+  var variantId;
   String? sku;
   String? status;
-  int? price;
+  var price;
   String? currency;
-  int? qty;
+  var qty;
   String? name;
   String? title;
   String? description;
-  Null? image;
-  int? weight;
+  var image;
+  var  weight;
   String? weightUom;
   String? cancellationReason;
   String? cancellationAt;
   bool? isShippingRequired;
-  int? fulfilmentId;
+  var fulfilmentId;
   String? trackingNo;
-  int? fulfilmentOrderId;
+  var fulfilmentOrderId;
 
   LineItems(
       {this.lineItemId,
@@ -432,13 +432,13 @@ class Store {
 }
 
 class FulfilmentOrder {
-  int? fulfilmentOrderId;
+  var fulfilmentOrderId;
   List<String>? statuses;
   String? createdAt;
   String? fulfillBy;
   String? shippingMethod;
-  Null? remarks;
-  int? totalWeight;
+  var remarks;
+  var totalWeight;
   String? totalWeightUom;
   List<LineItems>? lineItems;
   Additional? additional;
@@ -496,10 +496,10 @@ class FulfilmentOrder {
 }
 
 class LineItemsDetails {
-  int? lineItemId;
-  int? orderId;
-  int? productId;
-  int? variantId;
+  var lineItemId;
+  var orderId;
+  var productId;
+  var variantId;
   String? sku;
   String? status;
   int? price;
@@ -508,15 +508,15 @@ class LineItemsDetails {
   String? name;
   String? title;
   String? description;
-  Null? image;
+  var image;
   int? weight;
   String? weightUom;
-  Null? cancellationReason;
-  Null? cancellationAt;
+  var cancellationReason;
+  String? cancellationAt;
   bool? isShippingRequired;
-  int? fulfilmentId;
+  var fulfilmentId;
   String? trackingNo;
-  int? fulfilmentOrderId;
+  var fulfilmentOrderId;
 
   LineItemsDetails(
       {this.lineItemId,
@@ -593,8 +593,8 @@ class LineItemsDetails {
 }
 
 class AdditionalItem {
-  int? lineItemsTotalQty;
-  int? lineItemsTotalSku;
+  var lineItemsTotalQty;
+  var lineItemsTotalSku;
 
   AdditionalItem({this.lineItemsTotalQty, this.lineItemsTotalSku});
 
@@ -660,8 +660,8 @@ class Fulfilments {
 }
 
 class AdditionalCount {
-  int? fulfilmentIdsCount;
-  List<int>? fulfilmentIds;
+  var fulfilmentIdsCount;
+  List<dynamic>? fulfilmentIds;
 
   AdditionalCount({this.fulfilmentIdsCount, this.fulfilmentIds});
 

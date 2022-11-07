@@ -14,7 +14,7 @@ class WeatherRepositoryImpl implements WeatherRepository{
   ConnectionManagerController networkCheck = Get.find(tag: (ConnectionManagerController).toString());
 
   @override
-  Future<OrderModel> getOrderResponse() {
+  Future<List<OrderModel>> getOrderResponse() {
     return remoteSource.getOrder();
   }
 
