@@ -11,7 +11,7 @@ import 'flavors/environment.dart';
 void main() {
   EnvConfig devConfig = EnvConfig(
     appName: "Weather-DEV",
-    baseUrl: "https://weatherapi-com.p.rapidapi.com/",
+    baseUrl: "https://drive.google.com/file/d/1T_YlGz7PsGoTZgZhyQ2RF46omvURg6SO/",
     shouldCollectCrashLog: true,
   );
 

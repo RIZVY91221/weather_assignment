@@ -8,7 +8,7 @@ class AppRoutes {
   static  List<GetPage>pageList = [
     GetPage(
         name: AppRoutes.homePage,
-        page: () => WeatherHomePage(),
+        page: () => OrderHomePage(),
         binding: WeatherHomeBindings()
     ),
   ];

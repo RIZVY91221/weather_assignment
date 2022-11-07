@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:weather_assignment/core/models/order_model.dart';
 import 'package:weather_assignment/core/utils/custom_snackbar.dart';
 import 'package:weather_assignment/features/weather/data/model/weather_model.dart';
 import 'package:weather_assignment/features/weather/domain/repositories/weather_repository.dart';
@@ -12,10 +13,9 @@ class WeatherRepositoryImpl implements WeatherRepository{
   WeatherLocalPreferenceManager localSource = Get.find(tag: (WeatherLocalPreferenceManager).toString());
   ConnectionManagerController networkCheck = Get.find(tag: (ConnectionManagerController).toString());
 
-
   @override
-  Future<List<Weather>> getWeatherList(String city){
-    return remoteSource.getWeatherList(city);
+  Future<OrderModel> getOrderResponse() {
+    return remoteSource.getOrder();
   }
 
 }

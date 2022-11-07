@@ -1,16 +1,19 @@
+import 'package:weather_assignment/core/models/order_model.dart';
 import 'package:weather_assignment/core/usecases/param_usecase.dart';
-import 'package:weather_assignment/features/weather/data/model/weather_model.dart';
 import 'package:weather_assignment/features/weather/domain/repositories/weather_repository.dart';
 
-class WeatherUseCase implements ParamUseCase<List<Weather>,Params> {
+import '../../../../core/usecases/no_params_usecase.dart';
+
+class WeatherUseCase implements NoParamUseCase<OrderModel> {
   final WeatherRepository _repo;
 
   WeatherUseCase(this._repo);
 
   @override
-  Future<List<Weather>> execute(Params params)  {
-    return  _repo.getWeatherList(params.city);
+  Future<OrderModel> execute() {
+    return _repo.getOrderResponse();
   }
+
 }
 class Params {
   final String city;
